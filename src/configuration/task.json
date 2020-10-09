@@ -1,0 +1,56 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "35030d2d-d5dd-4bba-86bb-c5b98fd42d8f",
+    "name": "configuration",
+    "friendlyName": "Configuration setup",
+    "description": "LambdaTest credential verification",
+    "helpMarkDown": "This verifies lambdatest user credentials",
+    "author": "LambdaTest",
+  
+    "preview": false,
+    "showEnvironmentVariables": true,
+    "runsOn": [
+      "Agent",
+      "MachineGroup",
+      "Server"
+    ],
+    "category": "Azure Pipelines",
+    "version": {
+      "Major": 1,
+      "Minor": 0,
+      "Patch": 2
+    },
+  
+        "instanceNameFormat": "LambdaTest configuration setup",
+        "inputs": [
+        {
+            "type": "connectedService:LambdaTest",
+            "name": "connection",
+            "label": "LambdaTest service end point",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "LambdaTest service connection"
+        },
+        {
+            "type": "boolean",
+            "name": "isTunnelActivate",
+            "label": "LambdaTest Tunnel",
+            "defaultValue": false,
+            "required": true,
+            "helpMarkDown": "Value indicating whether to activate the tunnel."
+        },
+        {
+            "name": "tunnelOptions",
+            "type": "string",
+            "label": "LambdaTest Tunnel Options",
+            "required": false,
+            "visibleRule": "isTunnelActivate == true"
+        }
+        ],
+        "execution": {
+            "Node10": {
+                "target": "configuration.js",
+                "argumentFormat": ""
+            }
+        }
+  }

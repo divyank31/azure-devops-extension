@@ -1,0 +1,148 @@
+{
+    "manifestVersion": 1,
+    "id": "lambda-azure-devOps-extention",
+    "name": "LambdaTest",
+    "version": "41.3.2",
+    "publisher": "divyanksingh",
+    "public": false,
+    "description": "A demo extension.",
+    "targets": [
+{
+            "id": "Microsoft.VisualStudio.Services"
+}
+],
+"demands": [
+    "contribution/ms.vss-releaseartifact.artifact-types"
+],
+"branding": {
+    "color": "#3B3E43",
+    "theme": "dark"
+},
+    
+    "categories": [
+        "Azure Pipelines"
+],
+    "icons": {
+        "default": "images/extension-icon.png"
+},
+    "content": {
+        "details": {
+            "path": "README.md"
+}
+},
+    "files": [
+{
+            "path": "src/configuration",
+            "packagePath": "configuration"
+},
+{
+            "path": "src/stopLambdaTunnel",
+            "packagePath": "stopLambdaTunnel"
+},
+{
+            "path": "src/showResults",
+            "packagePath": "showResults"
+},
+{
+    "path": "images",
+    "addressable": "true"
+},
+{
+    "path": "node_modules/vss-web-extension-sdk/lib",
+    "addressable": true,
+    "packagePath": "lib"
+}  
+],
+    "contributions": [
+{
+            "id": "configuration-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+],
+            "properties": {
+                "name": "configuration"
+            }
+},
+{
+    "id": "lambdatest-endpoint-type",
+    "description": "Service connection type for all LambdaTest connections",
+    "type": "ms.vss-endpoint.service-endpoint-type",
+    "targets": [
+        "ms.vss-endpoint.endpoint-types"
+    ],
+    "properties": {
+        "name": "lambdatest",
+        "icon": "images/extension-icon.png",
+        "displayName": "LambdaTest",
+        "url": {
+            "displayName": "Server URL",
+            "value": "https://accounts.lambdatest.com/",
+            "helpText": "",
+            "isVisible": true
+        },
+        "dataSources": [
+            {
+                "name": "TestConnection",
+                "endpointUrl": "{{{endpoint.url}}}api/user/token/auth",
+                "resultSelector": "jsonpath:$[*]"
+            }
+        ],
+        "authenticationSchemes": [
+            {
+            "type": "ms.vss-endpoint.endpoint-auth-scheme-token"
+            },
+            {
+                "type": "ms.vss-endpoint.endpoint-auth-scheme-basic",
+                "inputDescriptors": [
+                    {
+                        "id": "username",
+                        "name": "Username",
+                        "description": "Username",
+                        "inputMode": "textbox",
+                        "isConfidential": false,
+                        "validation": {
+                            "isRequired": true,
+                            "dataType": "string"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+},
+{
+            "id": "stopLambdaTunnel-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+],
+            "properties": {
+                "name": "stopLambdaTunnel"
+}
+},
+{
+            "id": "showResults-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+],
+            "properties": {
+                "name": "showResults"
+}
+},
+{
+    "id": "build-info-tab",
+    "type": "ms.vss-build-web.build-results-tab",
+    "description": "A tab contributing to build results view",
+    "targets": [
+        "ms.vss-build-web.build-results-view"
+    ],
+    "properties": {
+        "name": "Custom Tab",
+         "uri": "infoTab.html"
+    }
+}
+]
+
+}

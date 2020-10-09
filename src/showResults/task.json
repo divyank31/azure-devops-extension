@@ -1,0 +1,31 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "78c3bea9-3f24-4668-8096-b9532d00f24f",
+    "name": "displayresults",
+    "friendlyName": "Display Results",
+    "description": "Display LambdaTest Results",
+    "helpMarkDown": "This display LambdaTest test results.",
+    "author": "LambdaTest",
+  
+    "preview": false,
+    "showEnvironmentVariables": false,
+    "runsOn": [
+      "Agent",
+      "MachineGroup",
+      "Server"
+    ],
+    "category": "Azure Pipelines",
+    "version": {
+      "Major": 1,
+      "Minor": 0,
+      "Patch": 0
+    },
+  
+        "instanceNameFormat": "LambdaTest Results",
+        "execution": {
+            "Node": {
+                "target": "sshowResults.js",
+                "argumentFormat": ""
+            }
+        }
+  }
