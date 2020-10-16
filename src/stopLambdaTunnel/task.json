@@ -4,7 +4,7 @@
     "name": "stoptunnel",
     "friendlyName": "Stop Tunnel",
     "description": "Stop LambdaTest Tunnel",
-    "helpMarkDown": "This stops lambdatest tunnel.",
+    "helpMarkDown": "",
     "author": "LambdaTest",
   
     "preview": false,

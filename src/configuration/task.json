@@ -3,8 +3,8 @@
     "id": "35030d2d-d5dd-4bba-86bb-c5b98fd42d8f",
     "name": "configuration",
     "friendlyName": "Configuration setup",
-    "description": "LambdaTest credential verification",
-    "helpMarkDown": "This verifies lambdatest user credentials",
+    "description": "This task sets Lambdatest credentials and starts Lambdatest tunnel.",
+    "helpMarkDown": "",
     "author": "LambdaTest",
   
     "preview": false,
@@ -29,7 +29,7 @@
             "label": "LambdaTest service end point",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "LambdaTest service connection"
+            "helpMarkDown": "Select the LambdaTest credentials to use. If needed, click on 'Manage', and add a new Service Endpoint of type 'LambdaTest service connection'."
         },
         {
             "type": "boolean",
@@ -37,14 +37,15 @@
             "label": "LambdaTest Tunnel",
             "defaultValue": false,
             "required": true,
-            "helpMarkDown": "Value indicating whether to activate the tunnel."
+            "helpMarkDown": "Check to enable LambdaTest tunnel."
         },
         {
             "name": "tunnelOptions",
             "type": "string",
             "label": "LambdaTest Tunnel Options",
             "required": false,
-            "visibleRule": "isTunnelActivate == true"
+            "visibleRule": "isTunnelActivate == true",
+            "helpMarkDown":"Enter a valid json with fields specified <a href='https://www.lambdatest.com/support/docs/lambda-tunnel-modifiers/'>here</a>"
         }
         ],
         "execution": {

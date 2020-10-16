@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "lambda-azure-devOps-extention",
     "name": "LambdaTest",
-    "version": "41.3.2",
+    "version": "130.3.2",
     "publisher": "divyanksingh",
     "public": false,
     "description": "A demo extension.",
@@ -25,6 +25,9 @@
     "icons": {
         "default": "images/extension-icon.png"
 },
+"scopes": [
+    "vso.build_execute"
+],
     "content": {
         "details": {
             "path": "README.md"
@@ -48,10 +51,19 @@
     "addressable": "true"
 },
 {
+    "path": "dist",
+    "addressable": true,
+    "packagePath": "scripts"
+},
+{
     "path": "node_modules/vss-web-extension-sdk/lib",
     "addressable": true,
     "packagePath": "lib"
-}  
+},
+{
+    "path": "static/lambdaTestReport.html",
+    "addressable": "true"
+}
 ],
     "contributions": [
 {
@@ -139,8 +151,9 @@
         "ms.vss-build-web.build-results-view"
     ],
     "properties": {
-        "name": "Custom Tab",
-         "uri": "infoTab.html"
+        "name": "LambdaTest",
+         "uri": "static/lambdaTestReport.html",
+         "height": "100%"
     }
 }
 ]

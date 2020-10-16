@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <script src="../lib/VSS.SDK.min.js"></script>
+    
+    <script type="text/javascript">
+        VSS.init( { 
+            usePlatformScripts: true, 
+            moduleLoaderConfig: { 
+                paths: { "enhancer": "scripts" } 
+            } 
+        });
+        
+        VSS.ready(function() {
+            require(["enhancer/tab"], function () { });
+        });   
+    </script>
+    
+    <style>
+    .build-info {
+        padding: 10px;
+    }     
+    </style>
+</head>
+
+<body>
+    <div class="build-info">
+       <h1>LambdaTest Results</h1>
+        <div class="risk-report-message">Currently this feature is in progress.</div>
+    </div>
+</body>
+</html>
